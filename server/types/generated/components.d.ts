@@ -14,6 +14,16 @@ export interface BlocksFeatureArticle extends Struct.ComponentSchema {
   };
 }
 
+export interface BlocksFullImage extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_full_images';
+  info: {
+    displayName: 'Full Image';
+  };
+  attributes: {
+    image: Schema.Attribute.Media<'images'>;
+  };
+}
+
 export interface BlocksHeading extends Struct.ComponentSchema {
   collectionName: 'components_blocks_headings';
   info: {
@@ -61,6 +71,19 @@ export interface BlocksParagraph extends Struct.ComponentSchema {
   };
   attributes: {
     content: Schema.Attribute.RichText;
+  };
+}
+
+export interface BlocksParagraphWithImage extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_paragraph_with_images';
+  info: {
+    displayName: 'Paragraph With Image';
+  };
+  attributes: {
+    content: Schema.Attribute.RichText;
+    image: Schema.Attribute.Media<'images'>;
+    imageLandscape: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    reversed: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
   };
 }
 
@@ -129,10 +152,12 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'blocks.feature-article': BlocksFeatureArticle;
+      'blocks.full-image': BlocksFullImage;
       'blocks.heading': BlocksHeading;
       'blocks.hero-section': BlocksHeroSection;
       'blocks.info-block': BlocksInfoBlock;
       'blocks.paragraph': BlocksParagraph;
+      'blocks.paragraph-with-image': BlocksParagraphWithImage;
       'blocks.subscribe': BlocksSubscribe;
       'elements.link': ElementsLink;
       'elements.logo': ElementsLogo;
