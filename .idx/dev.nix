@@ -16,9 +16,7 @@
   env = {};
   idx = {
     # Search for the extensions you want on https://open-vsx.org/ and use "publisher.id"
-    extensions = [
-      "k--kato.intellij-idea-keybindings"
-    ];
+    extensions = [];
     # Enable previews
     previews = {
       enable = true;
@@ -42,12 +40,14 @@
         # Example: install JS dependencies from NPM
         # npm-install = "npm install";
         # Open editors for the following files by default, if they exist:
-        default.openFiles = [ ".idx/dev.nix" "README.md" ];
+        # default.openFiles = [ ".idx/dev.nix" "README.md" ];
       };
       # Runs when the workspace is (re)started
       onStart = {
         # Example: start a background task to watch and re-build backend code
         # watch-backend = "npm run watch-backend";
+        # dev-server = "cd server && npm run develop";
+        # dev-client = "cd client && npm run dev";
       };
     };
   };
